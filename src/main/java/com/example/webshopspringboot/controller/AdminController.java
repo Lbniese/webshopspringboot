@@ -83,7 +83,7 @@ public class AdminController {
                 = orderDAO.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
 
         model.addAttribute("paginationResult", paginationResult);
-        return "orderList";
+        return "orderlist";
     }
 
     // GET: Show product.

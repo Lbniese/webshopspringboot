@@ -81,7 +81,7 @@ public class MainController {
                 maxResult, maxNavigationPage, likeName);
 
         model.addAttribute("paginationProducts", result);
-        return "productList";
+        return "productlist";
     }
 
     @RequestMapping({"/buyProduct"})
@@ -143,7 +143,7 @@ public class MainController {
         CartInfo myCart = Utils.getCartInSession(request);
 
         model.addAttribute("cartForm", myCart);
-        return "shoppingCart";
+        return "shoppingcart";
     }
 
     // GET: Enter customer information.
@@ -162,7 +162,7 @@ public class MainController {
 
         model.addAttribute("customerForm", customerForm);
 
-        return "shoppingCartCustomer";
+        return "shoppingcartcustomer";
     }
 
     // POST: Save customer information.
@@ -176,7 +176,7 @@ public class MainController {
         if (result.hasErrors()) {
             customerForm.setValid(false);
             // Forward to reenter customer info.
-            return "shoppingCartCustomer";
+            return "shoppingcartcustomer";
         }
 
         customerForm.setValid(true);
@@ -201,7 +201,7 @@ public class MainController {
         }
         model.addAttribute("myCart", cartInfo);
 
-        return "shoppingCartConfirmation";
+        return "shoppingcartconfirmation";
     }
 
     // POST: Submit Cart (Save)
@@ -221,7 +221,7 @@ public class MainController {
             orderDAO.saveOrder(cartInfo);
         } catch (Exception e) {
 
-            return "shoppingCartConfirmation";
+            return "shoppingcartconfirmation";
         }
 
         // Remove Cart from Session.
